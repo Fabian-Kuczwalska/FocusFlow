@@ -11,8 +11,8 @@ struct Background: View {
     var body: some View {
         Image("Image")
             .resizable()
-            .ignoresSafeArea()
             .scaledToFill()
+            .opacity(0.4)
             
             
     }

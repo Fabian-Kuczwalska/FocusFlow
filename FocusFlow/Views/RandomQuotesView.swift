@@ -9,25 +9,17 @@ import SwiftUI
 
 struct RandomQuotesView: View {
     @State private var viewModel = QuoteViewModel()
-    
     var body: some View {
         ZStack {
-            
-            
             VStack {
-                
-                
                 if viewModel.isLoading {
                     ProgressView("Lade Zitat...")
                 } else if let quote = viewModel.quote {
                     Text("\"\(quote.q)\"")
-                        .font(.callout)
+                        .font(.title2)
                         .multilineTextAlignment(.center)
-                       // .padding()
+                        .foregroundStyle(Color.white)
                     
-//                        Text("- \(quote.a)")
-//                        .font(.subheadline)
-//                        .foregroundColor(.gray)
                 } else if let errorMessage = viewModel.errorMessage {
                     Text(errorMessage)
                         .foregroundColor(.red)
@@ -35,14 +27,16 @@ struct RandomQuotesView: View {
                 
                 Button("Neues Zitat") {
                     viewModel.loadQuote()
+                    
                 }
-                .foregroundStyle(Color.yellow)
+                .foregroundStyle(Color.white)
+                .underline()
                 .padding()
             }
             .padding()
             .background{
                 Rectangle()
-                    .foregroundStyle(Color.blue).opacity(0.5)
+                    .foregroundStyle(Color.blue)
                     .cornerRadius(24)
             }
             

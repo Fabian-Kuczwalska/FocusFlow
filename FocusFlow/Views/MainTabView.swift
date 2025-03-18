@@ -8,9 +8,6 @@
 import SwiftUI
 
 struct MainTabView: View {
-    
-    @StateObject var viewModel = BrainDumpViewModel()
-    
     var body: some View {
         TabView {
             Tab {

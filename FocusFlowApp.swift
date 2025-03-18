@@ -13,7 +13,7 @@ struct FocusFlowApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MainTabView()
+            StartView()
                 .modelContainer(for: [
                     FavoriteTipp.self
                 ])

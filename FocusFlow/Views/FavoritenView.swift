@@ -15,7 +15,6 @@ struct FavoritenView: View {
     @Query(filter: #Predicate<FavoriteTipp> { $0.isLiked }) var favoriteTips: [FavoriteTipp]
     
     var body: some View {
-        
         VStack {
             HStack {
                 Spacer()
@@ -23,8 +22,6 @@ struct FavoritenView: View {
                     .font(.title2)
                     .bold()
                 Spacer()
-                Image(systemName: "chevron.left")
-                    .opacity(0) // Unsichtbar für symmetrisches Layout
             }
             .padding()
             

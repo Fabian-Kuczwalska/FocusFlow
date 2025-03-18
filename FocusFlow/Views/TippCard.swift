@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct TippCard: View {
+    
     @Environment(\.modelContext) private var modelContext
     @EnvironmentObject var viewModel: TippViewModel
     @State private var isLiked = false
@@ -32,7 +33,6 @@ struct TippCard: View {
                     toggleLike()
                     let tipp = FavoriteTipp(text: tipps.text, category: tipps.category, isLiked: true)
                     modelContext.insert(tipp)
-
                 }label:{
                     Image(systemName: isLiked ? "heart.fill" : "heart")
                         .foregroundColor(isLiked ? .red : .gray)

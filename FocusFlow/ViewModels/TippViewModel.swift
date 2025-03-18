@@ -15,6 +15,7 @@ class TippViewModel: ObservableObject {
     private let service = TippService()
     @Published private var isLiked = false
     @Published var isActive: Bool = false
+    @Published var error : String?
     init(){
         Task{
             await loadAllTipps()
@@ -28,6 +29,7 @@ class TippViewModel: ObservableObject {
         } catch {
             self.errorMessage = "Fehler beim Abrufen der Tipps: \(error.localizedDescription)"
             print(errorMessage ?? "Unbekannter Fehler")
+            self.error = "Fehler beim Abrufen der Tipps"
         }
     }
     /// Lädt Tipps einer bestimmten Kategorie

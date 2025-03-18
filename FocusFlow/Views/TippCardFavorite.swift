@@ -8,8 +8,9 @@
 
 import SwiftUI
 import SwiftData
-//Insertfunktion hier beim drücken auf herz
+
 struct TippCardFavorite: View {
+    
     @Environment(\.modelContext) private var modelContext
     @EnvironmentObject var viewModel: TippViewModel
     @State private var isLiked = false
@@ -50,7 +51,6 @@ struct TippCardFavorite: View {
 
     private func toggleLike() {
         tipps.isLiked.toggle()
-//        viewModel.saveLikeStatus()
     }
 }
     

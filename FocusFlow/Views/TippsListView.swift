@@ -9,7 +9,7 @@
 
 import SwiftUI
 import SwiftData
-// MARK: - TippsListView
+
 struct TippsListView: View {
     @Environment(\.modelContext) private var modelContext
     @ObservedObject var viewModel: TippViewModel
@@ -24,12 +24,17 @@ struct TippsListView: View {
                             .foregroundColor(.white)
                         Text("Meine Favoriten")
                             .font(.headline)
+                            .foregroundStyle(.white)
                     }
                     .frame(maxWidth: .infinity)
                     .padding()
                     .background(Color.blue)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .clipShape(RoundedRectangle(cornerRadius: 24))
                     .padding(.horizontal)
+                }
+                if (viewModel.error != nil){
+                    Text(viewModel.error!)
+                        .bold()
                 }
                 ScrollView {
                     VStack(spacing: 16) {
@@ -43,6 +48,7 @@ struct TippsListView: View {
                 }
                 Button {
                     viewModel.isActive.toggle()
+                    viewModel.error = nil
                 } label: {
                     Text("Fertig")
                         .font(.headline)
@@ -50,7 +56,7 @@ struct TippsListView: View {
                         .padding()
                         .frame(maxWidth: .infinity)
                         .background(Color.green)
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                        .clipShape(RoundedRectangle(cornerRadius: 24))
                         .padding(.horizontal)
                 }
             }

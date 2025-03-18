@@ -21,15 +21,17 @@ import Foundation
 import SwiftUI
 
 struct DashboardView: View {
+    @AppStorage("userName") private var userName: String = ""
     var body: some View {
         VStack{
             ZStack{
                 Rectangle()
-                    .foregroundStyle(Color.green).opacity(0.5)
+                    .foregroundStyle(Color.green)
                     .frame(maxWidth: .infinity, maxHeight: 300)
                 
-                Text("Hey Arnold, Schön das du da bist")
+                Text("Hey \(userName),\n Schön das du da bist")
                     .multilineTextAlignment(.center)
+                    .foregroundStyle(Color.white)
                     .font(.largeTitle)
                     .bold()
             }
